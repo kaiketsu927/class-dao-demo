@@ -13,15 +13,18 @@ contract StudentDAO {
 
     // 取錢 (Withdraw) - 這裡含有重入漏洞！
     function withdraw() public {
+        // 1.檢查餘額(check)
         uint256 amount = balances[msg.sender];
         require(amount > 0, "Insufficient balance");
 
         // 錯誤發生點 
-        // 1. Interaction (互動): 先把錢轉出去
+        // 2. Interaction (互動): 先把錢轉出去
+        // sent接到true或false // .call()把所有gas傳給sender
+
         (bool sent, ) = msg.sender.call{value: amount}("");
         require(sent, "Failed to send Ether");
 
-        // 2. Effect (更新狀態): 錢轉完才扣除餘額
+        // 3. Effect (更新狀態, effect): 錢轉完才扣除餘額
         balances[msg.sender] = 0;
     }
 
