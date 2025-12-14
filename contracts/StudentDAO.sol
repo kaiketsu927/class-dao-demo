@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier
 pragma solidity ^0.8.0;
 
 contract StudentDAO {
@@ -11,12 +11,12 @@ contract StudentDAO {
         balances[msg.sender] += msg.value;
     }
 
-    // 取錢 (Withdraw) - 這裡有嚴重的重入漏洞！
+    // 取錢 (Withdraw) - 這裡含有重入漏洞！
     function withdraw() public {
         uint256 amount = balances[msg.sender];
         require(amount > 0, "Insufficient balance");
 
-        // --- 錯誤發生點 ---
+        // 錯誤發生點 
         // 1. Interaction (互動): 先把錢轉出去
         (bool sent, ) = msg.sender.call{value: amount}("");
         require(sent, "Failed to send Ether");

