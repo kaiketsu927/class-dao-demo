@@ -12,7 +12,7 @@ async function main() {
   console.log(`StudentDAO 部署於: ${daoAddress}`);
 
   console.log(" step 2: 好學生存入資金 ");
-  await dao.connect(innocentStudent).deposit({ value: ethers.parseEther("1000.0") });
+  await dao.connect(innocentStudent).deposit({ value: ethers.parseEther("15.0") });
   console.log(`DAO 當前餘額: ${ethers.formatEther(await dao.getBalance())} ETH`);
 
   console.log(" step3:  駭客準備攻擊");
@@ -35,7 +35,7 @@ async function main() {
   console.log(`DAO 剩餘餘額: ${ethers.formatEther(daoBalance)} ETH (預期: 0.0)`);
   
   const hackerContractBalance = await ethers.provider.getBalance(await malicious.getAddress());
-  console.log(`駭客合約餘額: ${ethers.formatEther(hackerContractBalance)} ETH (預期: > 1000.0)`);
+  console.log(`駭客合約餘額: ${ethers.formatEther(hackerContractBalance)} ETH (預期: > 15.0)`);
 
   if (daoBalance == BigInt(0)) {
     console.log("\n 演示成功 DAO 資金已被掏空。");
