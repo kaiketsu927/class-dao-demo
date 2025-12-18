@@ -12,6 +12,7 @@ contract StudentDAO {
     }
 
     // 取錢 (Withdraw) - 這裡含有重入漏洞！
+    // 真正安全的實作邏輯: Check - Effect - Interact
     function withdraw() public {
         // 1.檢查餘額(check)
         uint256 amount = balances[msg.sender];
