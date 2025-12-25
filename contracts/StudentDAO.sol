@@ -1,9 +1,6 @@
 // SPDX-License-Identifier: MIT
-<<<<<<< HEAD
+
 // 1225更新
-=======
-// 1222更新
->>>>>>> a636c63935a2ca76d6972bbc70316c4a59cab3ce
 pragma solidity ^0.8.0;
 
 contract StudentDAO {
