@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-// 1225更新
+// 1226更新
 pragma solidity ^0.8.0;
 
 contract StudentDAO {
